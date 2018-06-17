@@ -13,7 +13,14 @@ public class Database {
     }
 
     public Connection getConnection() throws SQLException {
+        //return DriverManager.getConnection(databaseAddress); 
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        if (dbUrl != null && dbUrl.length() > 0) {
+            return DriverManager.getConnection(dbUrl);
+        }
+
         return DriverManager.getConnection(databaseAddress);
+        
     }
 
     public void init() {
@@ -39,10 +46,17 @@ public class Database {
         ArrayList<String> lista = new ArrayList<>();
 
         // tietokantataulujen luomiseen tarvittavat komennot suoritusjärjestyksessä
-        lista.add("CREATE TABLE Opiskelija (id integer PRIMARY KEY, nimi varchar(255));");
-        lista.add("INSERT INTO Opiskelija (nimi) VALUES ('Platon');");
-        lista.add("INSERT INTO Opiskelija (nimi) VALUES ('Aristoteles');");
-        lista.add("INSERT INTO Opiskelija (nimi) VALUES ('Homeros');");
+        lista.add("CREATE TABLE Annos (id serial primary key, nimi varchar(255));");
+        lista.add("CREATE TABLE RaakaAine (id serial primary key, nimi varchar(255));");
+        lista.add("CREATE TABLE AnnosRaakaAine (\n" +
+                    " rakaa_aine_id integer REFERENCES RaakaAine (id),\n" +
+                    " annos_id integer REFERENCES Annos (id),\n" +
+                    " jarjestys integer,\n" +
+                    " maara integer,\n" +
+                    " ohje varchar(500)\n" +
+                    ");");
+        //lista.add("INSERT INTO Opiskelija (nimi) VALUES ('Aristoteles');");
+        //lista.add("INSERT INTO Opiskelija (nimi) VALUES ('Homeros');");
 
         return lista;
     }
