@@ -46,21 +46,21 @@ public class Database {
         ArrayList<String> lista = new ArrayList<>();
 
         // tietokantataulujen luomiseen tarvittavat komennot suoritusjärjestyksessä
-//        lista.add("CREATE TABLE Annos (id serial primary key, nimi varchar(255));");
-//        lista.add("CREATE TABLE RaakaAine (id serial primary key, nimi varchar(255));");
-//        lista.add("CREATE TABLE AnnosRaakaAine (\n" +
-//                    " rakaa_aine_id integer REFERENCES RaakaAine (id),\n" +
-//                    " annos_id integer REFERENCES Annos (id),\n" +
-//                    " jarjestys integer,\n" +
-//                    " maara integer,\n" +
-//                    " ohje varchar(500)\n" +
-//                    ");");
-        lista.add("INSERT INTO Annos (nimi) VALUES ('Kossuvissy');");
-        lista.add("INSERT INTO Annos (nimi) VALUES ('Jekkupatteri');");
-        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Vissy');");
-        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Koskenkorva');");
-        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Jägermaister');");
-        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Battery+ energiajuoma');");
+        lista.add("CREATE TABLE Annos (id serial primary key, nimi varchar(255));");
+        lista.add("CREATE TABLE RaakaAine (id serial primary key, nimi varchar(255));");
+        lista.add("CREATE TABLE AnnosRaakaAine (\n" +
+                    " rakaa_aine_id integer REFERENCES RaakaAine (id),\n" +
+                    " annos_id integer REFERENCES Annos (id),\n" +
+                    " jarjestys integer,\n" +
+                    " maara integer,\n" +
+                    " ohje varchar(500)\n" +
+                    ");");
+//        lista.add("INSERT INTO Annos (nimi) VALUES ('Kossuvissy');");
+//        lista.add("INSERT INTO Annos (nimi) VALUES ('Jekkupatteri');");
+//        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Vissy');");
+//        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Koskenkorva');");
+//        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Jägermaister');");
+//        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Battery+ energiajuoma');");
 
         return lista;
     }
