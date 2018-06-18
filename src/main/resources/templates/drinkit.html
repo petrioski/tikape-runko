@@ -10,8 +10,8 @@
         <h1>Hei opiskelijat!</h1>
 
         <ol>
-            <li th:each="opiskelija: ${drinkit}">
-                <span th:text="${drinkki.nimi}">opiskelijan nimi</span> <a th:href="${'/opiskelijat/' + opiskelija.id}">linkki</a>
+            <li th:each="drinkki: ${drinkit}">
+                <span th:text="${drinkki.nimi}">opiskelijan nimi</span> <a th:href="${'/opiskelijat/' + drinkki.id}">linkki</a>
             </li>
         </ol>
     </body>
