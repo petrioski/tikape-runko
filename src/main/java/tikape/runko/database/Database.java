@@ -55,13 +55,17 @@ public class Database {
 //                    " maara integer,\n" +
 //                    " ohje varchar(500)\n" +
 //                    ");");
-        lista.add("INSERT INTO Annos (nimi) VALUES ('Kossuvissy');");
-        lista.add("INSERT INTO Annos (nimi) VALUES ('Jekkupatteri');");
-        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Vissy');");
-        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Koskenkorva');");
-        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Jägermaister');");
-        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Battery+ energiajuoma');");
-
+//        lista.add("INSERT INTO Annos (nimi) VALUES ('Kossuvissy');");
+//        lista.add("INSERT INTO Annos (nimi) VALUES ('Jekkupatteri');");
+//        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Vissy');");
+//        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Koskenkorva');");
+//        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Jägermaister');");
+//        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Battery+ energiajuoma');");
+/* 
+    SEUR. poista ylimääräiset rivit. 
+          lisää linkki napit
+          oma sivu tilastotiedolle
+*/
         return lista;
     }
 }

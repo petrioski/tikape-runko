@@ -33,11 +33,11 @@ public class Main {
             return new ModelAndView(map, "drinkit");
         }, new ThymeleafTemplateEngine());
 
-        get("/opiskelijat/:id", (req, res) -> {
+        get("/drinkkiresepti/:id", (req, res) -> {
             HashMap map = new HashMap<>();
-            map.put("opiskelija", opiskelijaDao.findOne(Integer.parseInt(req.params("id"))));
+            map.put("drinkki", opiskelijaDao.findOne(Integer.parseInt(req.params("id"))));
 
-            return new ModelAndView(map, "opiskelija");
+            return new ModelAndView(map, "drinkki");
         }, new ThymeleafTemplateEngine());
     }
 }
