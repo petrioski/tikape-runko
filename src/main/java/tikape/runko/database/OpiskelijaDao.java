@@ -52,19 +52,19 @@ public class OpiskelijaDao implements Dao<Drinkki, Integer> {
         PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Annos");
 
         ResultSet rs = stmt.executeQuery();
-        List<Drinkki> opiskelijat = new ArrayList<>();
+        List<Drinkki> drinkit = new ArrayList<>();
         while (rs.next()) {
             Integer id = rs.getInt("id");
             String nimi = rs.getString("nimi");
 
-            opiskelijat.add(new Drinkki(id, nimi));
+            drinkit.add(new Drinkki(id, nimi));
         }
 
         rs.close();
         stmt.close();
         connection.close();
 
-        return opiskelijat;
+        return drinkit;
     }
 
     @Override
