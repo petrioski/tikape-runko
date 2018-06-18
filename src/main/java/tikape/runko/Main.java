@@ -35,9 +35,9 @@ public class Main {
 
         get("/drinkkiresepti/:id", (req, res) -> {
             HashMap map = new HashMap<>();
-            map.put("drinkki", opiskelijaDao.findOne(Integer.parseInt(req.params("id"))));
+            map.put("drinkkiresepti", opiskelijaDao.findOne(Integer.parseInt(req.params("id"))));
 
-            return new ModelAndView(map, "drinkki");
+            return new ModelAndView(map, "drinkkiresepti");
         }, new ThymeleafTemplateEngine());
     }
 }
