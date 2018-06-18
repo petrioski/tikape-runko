@@ -26,9 +26,9 @@ public class Main {
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
 
-        get("/opiskelijat", (req, res) -> {
+        get("/drinkit", (req, res) -> {
             HashMap map = new HashMap<>();
-            map.put("opiskelijat", opiskelijaDao.findAll());
+            map.put("drinkit", opiskelijaDao.findAll());
 
             return new ModelAndView(map, "opiskelijat");
         }, new ThymeleafTemplateEngine());
