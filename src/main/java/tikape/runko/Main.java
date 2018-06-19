@@ -119,7 +119,11 @@ public class Main {
             
             String raakisNimi = req.queryParams("lisaaUusiRaakis");
             System.out.println(">> saatiin raakis " + raakisNimi);
-            reseptiDao.lisaaRaakis(raakisNimi);
+            
+            
+            if (!raakisNimi.isEmpty() && raakisNimi.length() > 0) {
+                reseptiDao.lisaaRaakis(raakisNimi);
+            }
             
             res.redirect("/drinkit/" + luku);
             
