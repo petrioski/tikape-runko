@@ -71,7 +71,7 @@ public class Database {
 //                    " maara integer,\n" +
 //                    " ohje varchar(500)\n" +
 //                    ");");
-        
+        lista.add("drop table AnnosRaakaAine; drop table RaakaAine; drop table Annos;");
 /* 
     SEUR. poista ylimääräiset rivit. 
           lisää linkki napit
