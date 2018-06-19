@@ -7,12 +7,20 @@
     </head>
 
     <body>
-        <h1>Hei opiskelijat!</h1>
+        <h1>Annoslista</h1>
 
         <ol>
             <li th:each="drinkki: ${drinkit}">
-                <span th:text="${drinkki.nimi}">opiskelijan nimi</span> <a th:href="${'/drinkkiresepti/' + drinkki.id}">linkki</a>
+                <span th:text="${drinkki.nimi}">opiskelijan nimi</span> <a th:href="${'/drinkit/' + drinkki.id}">linkki</a>
             </li>
         </ol>
+        
+        <form method="POST" action="/drinkit">
+            <span>Nimi:</span><br/>
+            <input type="text" name="lisattyDrinkki"/><br/>
+            <input type="submit" value="Lisää uusi annos!"/>
+        </form>
+        
+        <p><a href="/tilasto">raaka-ainelistaukseen ==</a></p>
     </body>
 </html>

@@ -15,10 +15,11 @@ public class Database {
     public Connection getConnection() throws SQLException {
         //return DriverManager.getConnection(databaseAddress); 
         String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        System.out.println(">> dbUrl >> " + dbUrl);
         if (dbUrl != null && dbUrl.length() > 0) {
             return DriverManager.getConnection(dbUrl);
         }
-
+        System.out.println(">> database address " + databaseAddress);
         return DriverManager.getConnection(databaseAddress);
         
     }
@@ -61,6 +62,16 @@ public class Database {
 //        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Koskenkorva');");
 //        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Jägermaister');");
 //        lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Battery+ energiajuoma');");
+//        lista.add("CREATE TABLE Annos (id integer not null primary key, nimi varchar(255));");
+//        lista.add("CREATE TABLE RaakaAine (id integer not null  primary key, nimi varchar(255));");
+//        lista.add("CREATE TABLE AnnosRaakaAine (\n" +
+//                    " rakaa_aine_id integer REFERENCES RaakaAine (id),\n" +
+//                    " annos_id integer REFERENCES Annos (id),\n" +
+//                    " jarjestys integer,\n" +
+//                    " maara integer,\n" +
+//                    " ohje varchar(500)\n" +
+//                    ");");
+        
 /* 
     SEUR. poista ylimääräiset rivit. 
           lisää linkki napit

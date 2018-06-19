@@ -1,0 +1,30 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Otsikko</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1>Raaka-aineet</h1>
+
+        <ol>
+            <li th:each="drinkki: ${tilasto}">
+                <strong><span th:text="${drinkki.nimi}">opiskelijan nimi</span></strong> 
+                <p>
+                esiintymiskerrat: <span th:text="${drinkki.esiintymisKerrat}">kpl</span><br></br> 
+                kayttomäärät yhteensä: <span th:text="${drinkki.kaytettyMaara}">jotain</span> (senttilitroina)
+                </p>
+            </li>
+        </ol>
+        
+        <h3>Lisää uusi raaka-aine tietokantaan</h3> 
+        <form method="POST" action="/tilasto">
+            <input type="text" name = "raakaAine"/>
+            <input type="submit" value="Lisää kantaan"/>
+        </form>
+        
+        <p><a href="/drinkit">--- drinkkilistaukseen</a></p>
+    </body>
+</html>

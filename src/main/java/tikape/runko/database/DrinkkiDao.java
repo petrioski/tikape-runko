@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import tikape.runko.domain.Drinkki;
 
-public class OpiskelijaDao implements Dao<Drinkki, Integer> {
+public class DrinkkiDao implements Dao<Drinkki, Integer> {
 
     private Database database;
 
-    public OpiskelijaDao(Database database) {
+    public DrinkkiDao(Database database) {
         this.database = database;
     }
 
@@ -25,8 +25,8 @@ public class OpiskelijaDao implements Dao<Drinkki, Integer> {
     public Drinkki findOne(Integer key) throws SQLException {
         Connection connection = database.getConnection();
         PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Annos WHERE id = ?");
-        stmt.setObject(1, key);
-
+        stmt.setInt(1, key);
+        System.out.println(">> haetaan arvo kannasta: " + stmt);
         ResultSet rs = stmt.executeQuery();
         boolean hasOne = rs.next();
         if (!hasOne) {
@@ -41,16 +41,16 @@ public class OpiskelijaDao implements Dao<Drinkki, Integer> {
         rs.close();
         stmt.close();
         connection.close();
-
+        System.out.println(">> palautetaan saatu arvo: " + o.getNimi());
         return o;
     }
 
     @Override
     public List<Drinkki> findAll() throws SQLException {
-
+        System.out.println("starting findAll()");
         Connection connection = database.getConnection();
         PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Annos");
-
+        System.out.println(">> " + stmt);
         ResultSet rs = stmt.executeQuery();
         List<Drinkki> drinkit = new ArrayList<>();
         while (rs.next()) {
@@ -70,6 +70,21 @@ public class OpiskelijaDao implements Dao<Drinkki, Integer> {
     @Override
     public void delete(Integer key) throws SQLException {
         // ei toteutettu
+    }
+    
+    public void save(String nimi) throws SQLException {
+        System.out.println("starting save()");
+        if (nimi != null & nimi.length() > 0) {
+            Connection connection = database.getConnection();
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO Annos (nimi) "
+                                                                    + "VALUES (?)");
+            stmt.setString(1, nimi);
+            System.out.println(">> " + stmt);
+            stmt.execute();
+
+            stmt.close();
+            connection.close();
+        }
     }
 
 }

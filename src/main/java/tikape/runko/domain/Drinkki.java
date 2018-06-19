@@ -26,4 +26,9 @@ public class Drinkki {
         this.nimi = nimi;
     }
 
+    @Override
+    public String toString() {
+        return "Drinkki{" + "id=" + id + ", nimi=" + nimi + '}';
+    }
+    
 }

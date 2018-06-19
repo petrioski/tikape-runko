@@ -7,8 +7,50 @@
     </head>
 
     <body>
-        <h1>Hei <span th:text="${drinkki.nimi}">opiskelija</span>!</h1>
-
-        <p>Olet saapunut opiskelijan <span th:text="${drinkki.nimi}">opiskelija</span> henkilökohtaiselle sivulle.</p>
+       
+        <h1><span th:text="${drinkkiresepti}">nimi</span></h1>
+        <h3>Ohjeet juoman koostamiseen:</h3>
+        
+        <ol>
+            <li th:each="aines : ${ainekset}">
+                <strong><span th:text="${aines.raakaAineNimi}">aines</span></strong> 
+                (<span th:text="${aines.maara}">maara</span> centtilitraa)
+                   <span th:text="${aines.ohje}">ohje</span> 
+            </li>
+        </ol>
+        
+        <h3>Lisää raaka-aineita juoman ohjeeseen</h3>
+        
+        <form th:action="@{~/drinkit/{id}(id=${drinkkiId})}" method="post">
+            
+            <p>Lisää raaka-aine: <select name="raakikset">
+                        <option th:each="valinta : ${raakikset}" th:value="${valinta.id}" th:text="${valinta.nimi}">
+                            user
+                        </option>
+                </select></p>
+            
+                    <p>Määrä senttilitroina:
+                        <input type="number" name="maara" min="1" max="100"/> </p>
+                    <p>Lisäysjärjestys:
+                        <input type="number" name="jarjestys" min="1" max="100"/> </p> 
+                    <p>Annosteluohje: 
+                        <input type="text" name = "ohje"/> </p>
+                    <input type="submit" value="Lisää ohjeeseen"/>
+                    
+                </form>
+       
+        
+        <h3>Lisää uusi raaka-aine tietokantaan</h3> 
+        <form method="POST" th:action="@{~/drinkit/{id}/raakis (id=${drinkkiId})}">
+            <input type="text" name = "lisaaUusiRaakis"/><br></br> 
+            <input type="submit" value="Lisää kantaan"/>
+        </form>
+        
+        <p><a href="/drinkit">--- drinkkilistaukseen</a></p>
+        <p><a href="/tilasto">raaka-ainelistaukseen ==</a></p>
+       
+       
+        
+       <!-- <span th:text="${Drinkki.nimi}">Essi esimerkki</span> -->
     </body>
 </html>
